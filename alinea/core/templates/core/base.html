@@ -15,7 +15,7 @@
 		<!-- meta character set -->
 		<meta charset="UTF-8">
 		<!-- Site Title -->
-		<title>Photography</title>
+		<title>Alinea</title>
 
 		<!-- <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">  -->
 			<!--
@@ -38,7 +38,7 @@
 					<div class="header-wrap">
 						<div class="header-top d-flex justify-content-between align-items-center">
 							<div class="logo">
-								<a href="#home"><img width="80" height="50" src="{% static 'core/img/Alinea PNG - Blanco.png ' %}" alt=""></a>
+								<a href="#home"><img width="120" height="60" src="{% static 'core/img/alinea.png' %}" alt=""></a>
 							</div>
 							<div class="main-menubar d-flex align-items-center">
 								<nav >
@@ -46,7 +46,7 @@
 									<a href="#about">Proyectos</a>
 									<a href="#gallery">Contacto</a>							
 								</nav>
-								<div class="menu-bar"><span class="lnr lnr-menu"></span></div>
+								{% comment %} <div class="menu-bar"><span class="lnr lnr-menu"></span></div> {% endcomment %}
 							</div>
 						</div>
 					</div>
@@ -54,247 +54,149 @@
 			</header>
 			<!-- End Header Area -->
 			<!-- start banner Area -->
-			<section class="banner-area relative" id="home">			
-				<div class="slider"><div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-				        <div class="carousel-inner" role="listbox">
-				          <!-- Slide One - Set the background image for this slide in the line below -->
-				          <div class="carousel-item active" style="background-image: url('{% static 'core/img/slider1.jpg'%} ')">
-				            <div class="carousel-caption d-md-block">
-				              <img width="1000" height="500" src="{% static 'core/img/Alinea PNG - Blanco.png ' %}" alt="">
-				            </div>
-				          </div>
-				          <!-- Slide Two - Set the background image for this slide in the line below -->
-				          <div class="carousel-item" style="background-image: url('{% static 'core/img/slider2.jpg'%} ')">
-				            <div class="carousel-caption d-md-block">
-				              <h2 class="text-uppercase">Wildlife Photography</h2>
-				              <p>T
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod <br> tempor incididunt ut labore  et dolore magna aliqua.	
-				              </p>
-				            </div>
-				          </div>
-				          <!-- Slide Three - Set the background image for this slide in the line below -->
-				          <div class="carousel-item" style="background-image: url('{% static 'core/img/slider3.jpg'%} ')">
-				            <div class="carousel-caption d-md-block">
-				              <h2 class="text-uppercase">Wildlife Photography</h2>
-				              <p>
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod <br> tempor incididunt ut labore  et dolore magna aliqua.	
-				              </p>
-				            </div>
-				          </div>
-                          <div class="carousel-item" style="background-image: url('{% static 'core/img/slider4.jpg'%} ')">
-				            <div class="carousel-caption d-md-block">
-				              <h2 class="text-uppercase">Wildlife Photography</h2>
-				              <p>
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod <br> tempor incididunt ut labore  et dolore magna aliqua.	
-				              </p>
-				            </div>
-				          </div>
-				        </div>
-				        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-				          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-				          <span class="sr-only">Previous</span>
-				        </a>
-				        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-				          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-				          <span class="sr-only">Next</span>
-				        </a>
-				      </div>
+			<section class="banner-area relative"  id="home">
+				<div class="slider">
+					<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+						<div class="carousel-inner" role="listbox">
+							{% for carusel_landing in carusel_landings %}
+								<div class="carousel-item {% if forloop.first %}active{% endif %}" style="background-image: url('{{carusel_landing.image.url }}')">
+									<div class="carousel-caption d-md-block">
+										<img width="{{carusel_landing.width}}" height="{{carusel_landing.height}}" src="{{carusel_landing.image_title.url }}" alt="">
+									</div>
+								</div>
+							{% endfor %}
+							<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+								<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+								<span class="sr-only">Previous</span>
+							</a>
+							<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+								<span class="carousel-control-next-icon" aria-hidden="true"></span>
+								<span class="sr-only">Next</span>
+							</a>
+						</div>
+					</div>
 				</div>
 			</section>
 			<!-- End banner Area -->	
-
-
 			<!-- Start About Area -->
-			<section class="About-area section-gap" id="about">
-				<div class="container">
+			<section class="About-area section-gap" id="about" style="background-color: #7F7F7F; padding: 0; height: 700px;">
+				<div class="container" style="background-color: #7F7F7F; padding: 0;">
 					<div class="row d-flex align-items-center">
 						<div class="col-lg-6 about-left">
-							<img class="img-fluid" src="img/about-img.jpg" alt="">
+							<img class="img-fluid" src="{% static 'core/img/que-es.png' %}" alt="" style="background-color: #7F7F7F; margin-top: 50px; height: 600px;">
 						</div>
 						<div class="col-lg-6 about-right">
-							<h1>
-								We Believe that <br>
-								Interior beautifies the
-							</h1>
-							<p>
-								inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards especially in the workplace. That’s why it’s crucial that, as women, our behavior on the job is beyond reproach. inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards especially in the workplace. That’s why it’s crucial that.
-							</p>
-							<button class="submit-btn primary-btn mt-20 text-uppercase ">Hire me now<span class="lnr lnr-arrow-right"></span></button>
+							<ul style="list-style-type: disc; color: white; font-size: 50px; margin-left: 20px;">
+								<li style="margin-bottom: 30px;">PROMOCIÓN</li>
+								<li style="margin-bottom: 30px;">GERENCIA</li>
+								<li style="margin-bottom: 30px;">VENTAS</li>
+								<li style="margin-bottom: 30px;">CONSTRUCCIÓN</li>
+							</ul>
 						</div>
 					</div>
-				</div>	
+				</div>  
 			</section>
-			<!-- End About Area -->
 
-			<!-- Start gallery Area -->
-			<section class="gallery-area section-gap" id="gallery">
-				<div class="container">
-					<div class="row justify-content-center">
-						<div class="col-md-8 pb-30 header-text">
-							<h1 class="text-white">My Recent Photos</h1>
-							<p>
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut <br> labore  et dolore magna aliqua.
+			<section class="About-area section-gap" id="about" style="background-color: #C4BD97; padding: 0; height: 700px;">
+				<div class="container" style="background-color: #C4BD97; padding: 0;">
+					<div class="row d-flex align-items-center">
+						<div class="col-lg-6 about-left">
+							<img class="img-fluid" src="{% static 'core/img/que-hace.png' %}" alt="" style="background-color: #C4BD97; margin-top: 50px; height: 600px; width: 1600px;">
+						</div>
+						<div class="col-lg-6 about-right">
+							<p style="color: white; font-size: 30px; text-align: justify; line-height: 1.5; padding-right: 20px;">
+								Productos arquitectónicos que alimentan el espíritu, enfocados al lujo espacial, a la agradable vivencia y al respeto del entorno
 							</p>
 						</div>
 					</div>
-					<div class="gal">
-						<a href="img/p1.jpg"><img src="img/p1.jpg" alt=""></a>
-						<a href="img/p2.jpg"><img src="img/p2.jpg" alt=""></a>
-						<a href="img/p3.jpg"><img src="img/p3.jpg" alt=""></a>
-						<a href="img/p4.jpg"><img src="img/p4.jpg" alt=""></a>
-						<a href="img/p5.jpg"><img src="img/p5.jpg" alt=""></a>
-						<a href="img/p6.jpg"><img src="img/p6.jpg" alt=""></a>
-						<a href="img/p7.jpg"><img src="img/p7.jpg" alt=""></a>
-						<a href="img/p8.jpg"><img src="img/p8.jpg" alt=""></a>
-						<a href="img/p9.jpg"><img src="img/p9.jpg" alt=""></a>
-						<a href="img/p10.jpg"><img src="img/p10.jpg" alt=""></a>
-						<a href="img/p11.jpg"><img src="img/p11.jpg" alt=""></a>
-						<a href="img/p12.jpg"><img src="img/p12.jpg" alt=""></a>
-						<a href="img/p13.jpg"><img src="img/p13.jpg" alt=""></a>
-						<a href="img/p14.jpg"><img src="img/p14.jpg" alt=""></a>
-						<a href="img/p15.jpg"><img src="img/p15.jpg" alt=""></a>
-						<a href="img/p16.jpg"><img src="img/p16.jpg" alt=""></a>
-										
+				</div>  
+			</section>
+
+			<section class="About-area section-gap" id="about" style="text-align: center;">
+				<div class="container">
+					<div class="row d-flex justify-content-center">
+						<div class="col-lg-4 about-left">
+							<img class="img-fluid" src="{% static 'core/img/logo1.png' %}" alt="" style="width: 100%;">
+						</div>
+						<div class="col-lg-4 about-left">
+							<img class="img-fluid" src="{% static 'core/img/logo2.png' %}" alt="" style="width: 100%;">
+						</div>
+						<div class="col-lg-4 about-left">
+							<img class="img-fluid" src="{% static 'core/img/logo3.png' %}" alt="" style="width: 100%;">
+						</div>
 					</div>
 				</div>
 			</section>
-
-			<!-- Start callto Area -->
-			<section class="callto-area pt-50 pb-50">
-				<div class="container">
-					<div class="row">
-						 <div class="col-lg-9 callto-left">
-						 	<h1 class="text-uppercase">Not sure about my charge?</h1>
-						 </div>
-						 <div class="col-lg-3 callto-right">
-						 	<a href="#" class="btn-white btn text-uppercase">Donate Now</a>
-						 </div>
-					</div>
-				</div>	
-			</section>
-			<!-- End callto Area -->
-
-			<!-- Start blog Area -->
-			<section class="blog-area section-gap" id="blog">
-				<div class="container">
-					<div class="row justify-content-center">
-						<div class="col-md-8 pb-30 header-text">
-							<h1>Our Recent Blogs</h1>
-							<p>
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut <br> labore  et dolore magna aliqua.
-							</p>
+			{% comment %} <section class="Image-section">
+				<div class="image-box">
+					<div class="image-container">
+						<img src="{% static 'core/img/logo3.png' %}" alt="Imagen 1">
+						<div class="image-info">
+							<p>Información de la imagen 1</p>
 						</div>
 					</div>
-					<div class="row">	
-						<div class="single-blog col-lg-4 col-md-4">
-
-							<img class="f-img img-fluid mx-auto" src="img/b1.jpg" alt="">
-							<h4>
-								<a href="#">Portable Fashion for young women</a>
-							</h4>
-							<p>
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore  et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip exea.
-								 commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-							</p>
-							<div class="bottom d-flex justify-content-between align-items-center flex-wrap">
-								<div>
-									<img class="img-fluid" src="img/user.png" alt="">
-									<a href="#"><span>Mark Wiens</span></a>
-								</div>
-								<div class="meta">
-									13th Dec
-									<span class="lnr lnr-heart"></span> 15
-									<span class="lnr lnr-bubble"></span> 04
-								</div>
-							</div>
+					<div class="image-container">
+						<img src="{% static 'core/img/logo3.png' %}" alt="Imagen 2">
+						<div class="image-info">
+							<p>Información de la imagen 2</p>
 						</div>
-						<div class="single-blog col-lg-4 col-md-4">
-							<img class="f-img img-fluid mx-auto" src="img/b2.jpg" alt="">
-							<h4>
-								<a href="#">Summer ware are coming</a>
-							</h4>
-							<p>
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore  et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip exea.
- 								commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-							</p>
-							<div class="bottom d-flex justify-content-between align-items-center flex-wrap">
-								<div>
-									<img class="img-fluid" src="img/user.png" alt="">
-									<a href="#"><span>Mark Wiens</span></a>
-								</div>
-								<div class="meta">
-									13th Dec
-									<span class="lnr lnr-heart"></span> 15
-									<span class="lnr lnr-bubble"></span> 04
-								</div>
-							</div>
-						</div>
-						<div class="single-blog col-lg-4 col-md-4">
-							<img class="f-img img-fluid mx-auto" src="img/b3.jpg" alt="">
-							<h4>
-								<a href="#">Summer ware are coming</a>
-							</h4>
-							<p>
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore  et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.
-							</p>
-							<div class="bottom d-flex justify-content-between align-items-center flex-wrap">
-								<div>
-									<img class="img-fluid" src="img/user.png" alt="">
-									<a href="#"><span>Mark Wiens</span></a>
-								</div>
-								<div class="meta">
-									13th Dec
-									<span class="lnr lnr-heart"></span> 15
-									<span class="lnr lnr-bubble"></span> 04
-								</div>
-							</div>
-						</div>												
 					</div>
-				</div>	
-			</section>
-			<!-- end blog Area -->	
-
+				</div>
+				<div class="image-box">
+					<div class="image-container">
+						<img src="{% static 'core/img/logo3.png' %}" alt="Imagen 3">
+						<div class="image-info">
+							<p>Información de la imagen 3</p>
+						</div>
+					</div>
+					<div class="image-container">
+						<img src="{% static 'core/img/logo3.png' %}" alt="Imagen 4">
+						<div class="image-info">
+							<p>Información de la imagen 4</p>
+						</div>
+					</div>
+				</div>
+			</section> {% endcomment %}
+			<!-- End About Area -->
 			<!-- Start contact Area -->
 			<section class="contact-area" id="contact">
 				<div class="container-fluid">
 					<div class="row d-flex justify-content-end align-items-center">
 						<div class="col-lg-5 col-md-12 contact-left no-padding">
-							<img class="img-fluid" src="img/contact-img.jpg" alt="">
+							<img class="img-fluid" src="{% static 'core/img/contacto.jpg' %}" alt="">
 						</div>
 						<div class="col-lg-7 col-md-12 contact-right no-padding">
 							<h1>Contáctanos</h1>
-							<p>
-								Ponte en contacto con nosotros.
-							</p>
-							<form class="booking-form" id="myForm" action="contact.php">
-								 	<div class="row">
-								 		<div class="col-lg-12 d-flex flex-column">
-							 				<input name="name" placeholder="Nombre Completo" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your name'" class="form-control mt-20" required="" type="text" required>
-								 		</div>
-							 			<div class="col-lg-12 d-flex flex-column">
-											<input name="email" placeholder="Correo electrónico" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Correo electrónico'" class="common-input mt-10" required="" type="email">
-										</div>
-										<div class="col-lg-12 d-flex flex-column">
-											<input name="phone" placeholder="Número de teléfono" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Número de teléfono'" class="common-input mt-10" required="" type="email">
-										</div>							
-										<div class="col-lg-12 flex-column">
-											<textarea class="form-control mt-20" name="Descripción" placeholder="Descripción" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Descripción'" required=""></textarea>
-										</div>
-										
-										<div class="col-lg-12 d-flex justify-content-end send-btn">
-											<button class="submit-btn primary-btn mt-20 text-uppercase ">Enviar<span class="lnr lnr-arrow-right"></span></button>
-										</div>
-
-										<div class="alert-msg"></div>		
+							<form class="booking-form" id="myForm" method="post" action="{% url 'home' %}">
+								{% csrf_token %}
+								<div class="row">
+									<div class="col-lg-12 d-flex flex-column">
+										{{ form.name.label_tag }}
+										{{ form.name }}
 									</div>
-					  		</form>
-							</div>
+									<div class="col-lg-12 d-flex flex-column">
+										{{ form.mail.label_tag }}
+										{{ form.mail }}
+									</div>
+									<div class="col-lg-12 d-flex flex-column">
+										{{ form.phone.label_tag }}
+										{{ form.phone }}
+									</div>
+									<div class="col-lg-12 flex-column">
+										{{ form.message.label_tag }}
+										{{ form.message }}
+									</div>
+									<div class="col-lg-12 d-flex justify-content-end send-btn">
+										<button class="submit-btn primary-btn mt-20 text-uppercase" type="submit">Enviar<span class="lnr lnr-arrow-right"></span></button>
+									</div>
+									<div class="alert-msg"></div>
+								</div>
+							</form>
 						</div>						
 					</div>
 				</div>	
 			</section>
 			<!-- End contact Area -->
-
 			<!-- start footer Area -->		
 			<footer class="footer-area">
 				<div class="container">

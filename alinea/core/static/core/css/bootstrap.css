@@ -602,6 +602,10 @@ pre code {
   width: 100%;
 }
 
+.img-que-es{
+  position: absolute; /* Posicionamiento absoluto para la imagen */
+  left: 0; /* Alinea la imagen a la izquierda del div */
+}
 @media (min-width: 576px) {
   .container {
     max-width: 540px;
