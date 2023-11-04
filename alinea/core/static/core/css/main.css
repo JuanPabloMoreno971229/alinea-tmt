@@ -1927,7 +1927,10 @@ body {
 
 .menu-bar {
   cursor: pointer;
+  
+  
 }
+
 
 .menu-bar span {
   color: #fff;
@@ -1980,6 +1983,7 @@ nav a {
   margin: 0 25px;
   display: inline-block;
 }
+
 
 @media (max-width: 767px) {
   nav a {

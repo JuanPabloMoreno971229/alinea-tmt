@@ -1,13 +1,20 @@
-@import url('https://fonts.cdnfonts.com/css/futura-lt');
+@import url(https://db.onlinewebfonts.com/c/8801e3707b24699e328cfdfa2b659187?family=Futura+LT+W04+Book);
 
-@font-face {
-    font-family: 'FontAwesome';
-    src: url('../fonts/fontawesome-webfont.eot?v=4.7.0');
-    src: url('../fonts/fontawesome-webfont.eot?#iefix&v=4.7.0') format('embedded-opentype'), url('../fonts/fontawesome-webfont.woff2?v=4.7.0') format('woff2'), url('../fonts/fontawesome-webfont.woff?v=4.7.0') format('woff'), url('../fonts/fontawesome-webfont.ttf?v=4.7.0') format('truetype'), url('../fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular') format('svg');
+/* @font-face {
+    font-family: 'Futura LT';
+    src: url('https://fonts.cdnfonts.com/s/c44be03e-d972-4a14-b3d3-e3cd09e12f0f.woff2') format('woff2'),
+         url('https://fonts.cdnfonts.com/s/10af5cbb-8a7e-499e-9d5e-e6b1a69edfa3.woff') format('woff');
     font-weight: normal;
-    font-style: normal
-}
-
+    font-style: normal;
+  } */
+  
+  .selector-de-tu-elemento {
+    font-family: "Futura LT W04 Book";
+    font-size: 16px; /* Tamaño de fuente personalizado */
+    font-weight: 500;
+    /* Otras propiedades de estilo del texto */
+  }
+  
 .fa {
     display: inline-block;
     font: normal normal normal 14px/1 FontAwesome;

@@ -29,7 +29,8 @@
 			<link rel='stylesheet' href="{% static 'core/css/simplelightbox.min.css ' %}">
 			<link rel="stylesheet" href="{% static 'core/css/bootstrap.css ' %}">
 			<link rel="stylesheet" href="{% static 'core/css/main.css ' %}">
-
+			<link href="https://db.onlinewebfonts.com/c/8801e3707b24699e328cfdfa2b659187?family=Futura+LT+W04+Book" rel="stylesheet">
+                
 		</head>
 		<body>
 			<!-- Start Header Area -->
@@ -40,13 +41,13 @@
 							<div class="logo">
 								<a href="#home"><img width="120" height="60" src="{% static 'core/img/alinea.png' %}" alt=""></a>
 							</div>
-							<div class="main-menubar d-flex align-items-center">
+							<div class="main-menubar d-flex align-items-center selector-de-tu-elemento">
 								<nav >
 									<a href="#home">Nosotros</a>
 									<a href="#about">Proyectos</a>
 									<a href="#gallery">Contacto</a>							
 								</nav>
-								{% comment %} <div class="menu-bar"><span class="lnr lnr-menu"></span></div> {% endcomment %}
+								<div class="menu-bar"><span class="lnr lnr-menu"></span></div>
 							</div>
 						</div>
 					</div>
@@ -61,7 +62,10 @@
 							{% for carusel_landing in carusel_landings %}
 								<div class="carousel-item {% if forloop.first %}active{% endif %}" style="background-image: url('{{carusel_landing.image.url }}')">
 									<div class="carousel-caption d-md-block">
-										<img width="{{carusel_landing.width}}" height="{{carusel_landing.height}}" src="{{carusel_landing.image_title.url }}" alt="">
+										<h1 class="selector-de-tu-elemento" style="font-size: 250px; color: #ffff;">{{carusel_landing.text}}</h1>
+										{% if carusel_landing.image_title %}
+											<img width="{{carusel_landing.width}}" height="{{carusel_landing.height}}" src="{{carusel_landing.image_title.url }}" alt="">
+										{% endif %}
 									</div>
 								</div>
 							{% endfor %}
@@ -79,86 +83,57 @@
 			</section>
 			<!-- End banner Area -->	
 			<!-- Start About Area -->
-			<section class="About-area section-gap" id="about" style="background-color: #7F7F7F; padding: 0; height: 700px;">
-				<div class="container" style="background-color: #7F7F7F; padding: 0;">
-					<div class="row d-flex align-items-center">
-						<div class="col-lg-6 about-left">
-							<img class="img-fluid" src="{% static 'core/img/que-es.png' %}" alt="" style="background-color: #7F7F7F; margin-top: 50px; height: 600px;">
-						</div>
+			<section class="About-area section-gap" id="about" style="background-image: url('{% static 'core/img/fondo-de-que-es.jpg' %}'); background-size: 100%; padding: 0; height: 1060px;">
+				<div class="container" >
+					<div class="row d-flex align-items-center " style="justify-content: flex-end; align-items: flex-end; min-height: 100vh; ">
 						<div class="col-lg-6 about-right">
-							<ul style="list-style-type: disc; color: white; font-size: 50px; margin-left: 20px;">
-								<li style="margin-bottom: 30px;">PROMOCIÓN</li>
-								<li style="margin-bottom: 30px;">GERENCIA</li>
-								<li style="margin-bottom: 30px;">VENTAS</li>
-								<li style="margin-bottom: 30px;">CONSTRUCCIÓN</li>
+							<ul class="selector-de-tu-elemento"style="list-style-type: disc; color: white; font-size: 50px;">
+								<li style="margin-bottom: 50px;">PROMOCIÓN</li>
+								<li style="margin-bottom: 50px;">GERENCIA</li>
+								<li style="margin-bottom: 50px;">VENTAS</li>
+								<li style="margin-bottom: 50px;">CONSTRUCCIÓN</li>
 							</ul>
 						</div>
 					</div>
 				</div>  
 			</section>
-
-			<section class="About-area section-gap" id="about" style="background-color: #C4BD97; padding: 0; height: 700px;">
-				<div class="container" style="background-color: #C4BD97; padding: 0;">
-					<div class="row d-flex align-items-center">
-						<div class="col-lg-6 about-left">
-							<img class="img-fluid" src="{% static 'core/img/que-hace.png' %}" alt="" style="background-color: #C4BD97; margin-top: 50px; height: 600px; width: 1600px;">
-						</div>
-						<div class="col-lg-6 about-right">
-							<p style="color: white; font-size: 30px; text-align: justify; line-height: 1.5; padding-right: 20px;">
-								Productos arquitectónicos que alimentan el espíritu, enfocados al lujo espacial, a la agradable vivencia y al respeto del entorno
-							</p>
-						</div>
-					</div>
-				</div>  
-			</section>
-
-			<section class="About-area section-gap" id="about" style="text-align: center;">
+			<section class="About-area section-gap" id="about" style="background-image: url('{% static 'core/img/que-hace-img-fondo.jpg' %}'); background-size: 100%; padding: 0; height: 1060px;">
 				<div class="container">
-					<div class="row d-flex justify-content-center">
-						<div class="col-lg-4 about-left">
-							<img class="img-fluid" src="{% static 'core/img/logo1.png' %}" alt="" style="width: 100%;">
-						</div>
-						<div class="col-lg-4 about-left">
-							<img class="img-fluid" src="{% static 'core/img/logo2.png' %}" alt="" style="width: 100%;">
-						</div>
-						<div class="col-lg-4 about-left">
-							<img class="img-fluid" src="{% static 'core/img/logo3.png' %}" alt="" style="width: 100%;">
+					<div class="row d-flex align-items-center" style="justify-content: flex-end; align-items: flex-end; min-height: 100vh;">
+						<div class="col-lg-6 about-right">
+							<p class="selector-de-tu-elemento" style="color: white; font-size: 50px; line-height: 1.5; padding-left: 40px; ">Productos arquitectónicos que alimentan el espíritu, enfocados al lujo espacial, a la agradable vivencia y al respeto del entorno.</p>
 						</div>
 					</div>
 				</div>
 			</section>
-			{% comment %} <section class="Image-section">
-				<div class="image-box">
-					<div class="image-container">
-						<img src="{% static 'core/img/logo3.png' %}" alt="Imagen 1">
-						<div class="image-info">
-							<p>Información de la imagen 1</p>
-						</div>
-					</div>
-					<div class="image-container">
-						<img src="{% static 'core/img/logo3.png' %}" alt="Imagen 2">
-						<div class="image-info">
-							<p>Información de la imagen 2</p>
-						</div>
-					</div>
+			<section class="About-area section-gap" id="about" style="text-align: center; height: 1000px;">
+				<table style="width: 90%; border-collapse: separate; border-spacing: 100px;">
+					<tr>
+						<td><img src="{% static 'core/img/logo1.png' %}" alt="La idea" style="width: 500px;"></td>
+						<td><img src="{% static 'core/img/logo2.png' %}" alt="El inicio" style="width: 500px;"></td>
+						<td><img src="{% static 'core/img/logo3.png' %}" alt="El hoy" style="width: 500px;"></td>
+					</tr>
+					<tr>
+						<td style="font-size: 50px;">La idea</td>
+						<td style="font-size: 50px;">El inicio</td>
+						<td style="font-size: 50px;">El hoy</td>
+					</tr>
+				</table>
+			</section>
+			<section class="grid-section">
+				<div class="grid-item">
+					<img src="{% static 'core/img/que-hace-img-fondo.jpg' %}" alt="Imagen 1">
 				</div>
-				<div class="image-box">
-					<div class="image-container">
-						<img src="{% static 'core/img/logo3.png' %}" alt="Imagen 3">
-						<div class="image-info">
-							<p>Información de la imagen 3</p>
-						</div>
-					</div>
-					<div class="image-container">
-						<img src="{% static 'core/img/logo3.png' %}" alt="Imagen 4">
-						<div class="image-info">
-							<p>Información de la imagen 4</p>
-						</div>
-					</div>
+				<div class="grid-item">
+					<img src="{% static 'core/img/que-hace-img-fondo.jpg' %}" alt="Imagen 2">
 				</div>
-			</section> {% endcomment %}
-			<!-- End About Area -->
-			<!-- Start contact Area -->
+				<div class="grid-item">
+					<img src="{% static 'core/img/que-hace-img-fondo.jpg' %}" alt="Imagen 3">
+				</div>
+				<div class="grid-item">
+					<img src="{% static 'core/img/que-hace-img-fondo.jpg' %}" alt="Imagen 4">
+				</div>
+			</section>
 			<section class="contact-area" id="contact">
 				<div class="container-fluid">
 					<div class="row d-flex justify-content-end align-items-center">
@@ -170,7 +145,7 @@
 							<form class="booking-form" id="myForm" method="post" action="{% url 'home' %}">
 								{% csrf_token %}
 								<div class="row">
-									<div class="col-lg-12 d-flex flex-column">
+									<div class="col-lg-12 d-flex flex-column" style="font-color: #0000">
 										{{ form.name.label_tag }}
 										{{ form.name }}
 									</div>
