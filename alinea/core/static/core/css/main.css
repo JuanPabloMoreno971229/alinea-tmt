@@ -19,7 +19,7 @@
 
 ::-webkit-input-placeholder {
   /* WebKit, Blink, Edge */
-  color: #777777;
+  color: #ffff;
   font-weight: 300;
 }
 
@@ -2041,7 +2041,8 @@ nav a:hover {
 .footer-social a:hover,
 .generic-banner {
   background-image: -moz-linear-gradient(0deg, #7a77ff 0%, #8cfe86 100%);
-  background-image: -webkit-linear-gradient(0deg, #7a77ff 0%, #8cfe86 100%);
+  /*background-image: -webkit-linear-gradient(0deg, #7a77ff 0%, #8cfe86 100%);*/
+  background-color: #222222;
   background-image: -ms-linear-gradient(0deg, #7a77ff 0%, #8cfe86 100%);
 }
 
@@ -2682,4 +2683,57 @@ h6 {
 
 .switch-wrap p {
   margin: 0;
+}
+
+
+/* ======================================*/
+.grid-section {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100vh;
+}
+
+.table-container {
+  max-width: 50%; /* Ancho máximo de la tabla */
+}
+
+.responsive-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.responsive-table td {
+  padding: 10px;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.responsive-table img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.image-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 10px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.image-container:hover .overlay {
+  opacity: 1;
 }

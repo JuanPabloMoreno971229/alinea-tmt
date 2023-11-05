@@ -9,13 +9,13 @@ class ContactoForm(forms.ModelForm):
         model = Contact
         fields = '__all__'
         widgets = {
-            'name' : forms.TextInput(attrs={'class':'contact-form-text','placeholder':'Nombre'}),
-            'mail' : forms.EmailInput(attrs={'class':'contact-form-text','placeholder':'Correo'}),
-            'phone' : forms.TextInput(attrs={'class':'contact-form-text','placeholder':'Teléfono'}),
-            'message' : forms.TextInput(attrs={'class':'contact-form-text','placeholder':'Mensaje'}),
-            'status' : forms.HiddenInput(attrs={'class':'contact-form-text','placeholder':'Estado'}),
+            'name' : forms.TextInput(attrs={'class':' col-lg-12 d-flex flex-column','placeholder':'Nombre'}),
+            'mail' : forms.EmailInput(attrs={'class':' col-lg-12 d-flex flex-column','placeholder':'Correo'}),
+            'phone' : forms.TextInput(attrs={'class':' col-lg-12 d-flex flex-column','placeholder':'Teléfono'}),
+            'message' : forms.TextInput(attrs={'class':' col-lg-12 d-flex flex-column','placeholder':'Mensaje'}),
+            'status' : forms.HiddenInput(attrs={'class':' col-lg-12 d-flex flex-column','placeholder':'Estado'}),
         }
-        labels = {'procedure': '','name': '', 'mail': '', 'phone': '', 'message': ''}
+        labels = {'name': '', 'mail': '', 'phone': '', 'message': ''}
     
     
     

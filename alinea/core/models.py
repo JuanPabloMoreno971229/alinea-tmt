@@ -27,7 +27,7 @@ class Contact(models.Model):
     name= models.CharField(max_length=200, null=False, verbose_name="Nombre")
     mail= models.EmailField(max_length=200, null=False, verbose_name="Correo electrónico")
     phone= models.CharField(max_length=200, null=False, verbose_name="Número de teléfono")
-    message= models.TextField(verbose_name="Mensaje")
+    message= models.CharField(verbose_name="Mensaje", max_length=500)
     status=models.BooleanField(default=False, verbose_name="Contestado")
     created= models.DateTimeField(auto_now_add=True, verbose_name="Fecha de creación")
     

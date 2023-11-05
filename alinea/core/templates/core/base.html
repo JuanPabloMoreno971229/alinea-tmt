@@ -64,7 +64,7 @@
 									<div class="carousel-caption d-md-block">
 										<h1 class="selector-de-tu-elemento" style="font-size: 250px; color: #ffff;">{{carusel_landing.text}}</h1>
 										{% if carusel_landing.image_title %}
-											<img width="{{carusel_landing.width}}" height="{{carusel_landing.height}}" src="{{carusel_landing.image_title.url }}" alt="">
+											<img width="900px" height="500px" src="{{carusel_landing.image_title.url }}" alt="">
 										{% endif %}
 									</div>
 								</div>
@@ -120,40 +120,70 @@
 					</tr>
 				</table>
 			</section>
-			<section class="grid-section">
-				<div class="grid-item">
-					<img src="{% static 'core/img/que-hace-img-fondo.jpg' %}" alt="Imagen 1">
-				</div>
-				<div class="grid-item">
-					<img src="{% static 'core/img/que-hace-img-fondo.jpg' %}" alt="Imagen 2">
-				</div>
-				<div class="grid-item">
-					<img src="{% static 'core/img/que-hace-img-fondo.jpg' %}" alt="Imagen 3">
-				</div>
-				<div class="grid-item">
-					<img src="{% static 'core/img/que-hace-img-fondo.jpg' %}" alt="Imagen 4">
+			<section class="grid-section" style="background-color: #7F7F7F;">
+				<div class="table-container">
+					<table class="responsive-table">
+						<tr>
+							<td>
+								<div class="image-container">
+									<img src="{% static 'core/img/_62A9923.jpg' %}" alt="Imagen 1">
+									<div class="overlay">
+										<p>Información de la imagen 1</p>
+										<p>Información de la imagen 1</p>
+										<p>Información de la imagen 1</p>
+									</div>
+								</div>
+							</td>
+							<td>
+								<div class="image-container">
+									<img src="{% static 'core/img/_62A9923.jpg' %}" alt="Imagen 2">
+									<div class="overlay">
+										<p>Información de la imagen 2</p>
+									</div>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="image-container">
+									<img src="{% static 'core/img/_62A9923.jpg' %}" alt="Imagen 3">
+									<div class="overlay">
+										<p>Información de la imagen 3</p>
+									</div>
+								</div>
+							</td>
+							<td>
+								<div class="image-container">
+									<img src="{% static 'core/img/_62A9923.jpg' %}" alt="Imagen 4">
+									<div class="overlay">
+										<p>Información de la imagen 4</p>
+									</div>
+								</div>
+							</td>
+						</tr>
+					</table>
 				</div>
 			</section>
-			<section class="contact-area" id="contact">
+			<section class="contact-area" id="contact" style="background-color: #C4BD97;" >
 				<div class="container-fluid">
 					<div class="row d-flex justify-content-end align-items-center">
 						<div class="col-lg-5 col-md-12 contact-left no-padding">
-							<img class="img-fluid" src="{% static 'core/img/contacto.jpg' %}" alt="">
+							<img class="img-fluid" src="{% static 'core/img/contacto.jpg' %}" alt="Contáctanos">
 						</div>
 						<div class="col-lg-7 col-md-12 contact-right no-padding">
-							<h1>Contáctanos</h1>
+							<h1 style="color: #ffff">Contáctanos</h1>
 							<form class="booking-form" id="myForm" method="post" action="{% url 'home' %}">
 								{% csrf_token %}
 								<div class="row">
-									<div class="col-lg-12 d-flex flex-column" style="font-color: #0000">
+									<div class="col-lg-12 flex-column" style="color: #ffff">
 										{{ form.name.label_tag }}
 										{{ form.name }}
 									</div>
-									<div class="col-lg-12 d-flex flex-column">
+									<div class="col-lg-12 flex-column">
 										{{ form.mail.label_tag }}
 										{{ form.mail }}
 									</div>
-									<div class="col-lg-12 d-flex flex-column">
+									<div class="col-lg-12 flex-column">
 										{{ form.phone.label_tag }}
 										{{ form.phone }}
 									</div>

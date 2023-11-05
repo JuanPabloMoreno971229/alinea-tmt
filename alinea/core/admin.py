@@ -4,6 +4,7 @@ from .models import CaruselLanding, Contact
 # Register your models here.
 class LandingAdmin(admin.ModelAdmin):
     list_display = ('id','title')
+    readonly_fields = ('title','image_title')
     
 
 admin.site.register(CaruselLanding, LandingAdmin)
