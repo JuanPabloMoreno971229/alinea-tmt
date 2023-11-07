@@ -43,22 +43,23 @@ class Contact(models.Model):
 
 class what(models.Model):
    
-    name= models.CharField(max_length=200, null=False, verbose_name="Nombre")
+    title= models.CharField(max_length=200, blank=True, verbose_name="Titulo")
     created= models.DateTimeField(auto_now_add=True, verbose_name="Fecha de creación")
     updated = models.DateTimeField(auto_now=True, verbose_name="Fecha de edición")
 
     class Meta:
         verbose_name = "Que es"
         verbose_name_plural = "Que es"
-        ordering = ["-created"]
+        ordering = ["created"]
         
                 
     def __str__(self):
-        return self.name
+        return self.title
 
 class how(models.Model):
    
-    name= models.CharField(max_length=200, null=False, verbose_name="Nombre")
+    title = models.CharField(verbose_name="Título", max_length=200, blank=True)
+    text= models.TextField(max_length=200, blank=True, verbose_name="Información")
     created= models.DateTimeField(auto_now_add=True, verbose_name="Fecha de creación")
     updated = models.DateTimeField(auto_now=True, verbose_name="Fecha de edición")
 
@@ -69,4 +70,38 @@ class how(models.Model):
         
                 
     def __str__(self):
-        return self.name
+        return self.title
+
+class logos(models.Model):
+   
+    title = models.CharField(verbose_name="Título", max_length=200, blank=True)
+    image = models.ImageField(verbose_name="Imagen", upload_to="Logo")
+    created= models.DateTimeField(auto_now_add=True, verbose_name="Fecha de creación")
+    updated = models.DateTimeField(auto_now=True, verbose_name="Fecha de edición")
+
+    class Meta:
+        verbose_name = "Logo"
+        verbose_name_plural = "Logo"
+        ordering = ["created"]
+        
+                
+    def __str__(self):
+        return self.title
+
+class Project(models.Model):
+    
+    title = models.CharField(verbose_name="Título", max_length=200, blank=True)
+    image = models.ImageField(verbose_name="Imagen", upload_to="Logo")
+    information = models.TextField(verbose_name="Información")
+    created= models.DateTimeField(auto_now_add=True, verbose_name="Fecha de creación")
+    updated = models.DateTimeField(auto_now=True, verbose_name="Fecha de edición")
+
+    class Meta:
+        verbose_name = "Proyecto"
+        verbose_name_plural = "Proyecto"
+        ordering = ["-created"]
+        
+                
+    def __str__(self):
+        return self.title
+

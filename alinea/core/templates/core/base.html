@@ -5,7 +5,7 @@
 		<!-- Mobile Specific Meta -->
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<!-- Favicon-->
-		<link rel="shortcut icon" href="img/fav.png">
+		<link rel="shortcut icon" href="{% static 'core/img/logo3.png' %}">
 		<!-- Author Meta -->
 		<meta name="author" content="CodePixar">
 		<!-- Meta Description -->
@@ -88,10 +88,9 @@
 					<div class="row d-flex align-items-center " style="justify-content: flex-end; align-items: flex-end; min-height: 100vh; ">
 						<div class="col-lg-6 about-right">
 							<ul class="selector-de-tu-elemento"style="list-style-type: disc; color: white; font-size: 50px;">
-								<li style="margin-bottom: 50px;">PROMOCIÓN</li>
-								<li style="margin-bottom: 50px;">GERENCIA</li>
-								<li style="margin-bottom: 50px;">VENTAS</li>
-								<li style="margin-bottom: 50px;">CONSTRUCCIÓN</li>
+								{% for what in what %}
+									<li style="margin-bottom: 50px;">{{what.title}}</li>
+								{% endfor %}
 							</ul>
 						</div>
 					</div>
@@ -101,7 +100,9 @@
 				<div class="container">
 					<div class="row d-flex align-items-center" style="justify-content: flex-end; align-items: flex-end; min-height: 100vh;">
 						<div class="col-lg-6 about-right">
-							<p class="selector-de-tu-elemento" style="color: white; font-size: 50px; line-height: 1.5; padding-left: 40px; ">Productos arquitectónicos que alimentan el espíritu, enfocados al lujo espacial, a la agradable vivencia y al respeto del entorno.</p>
+						{% for how in how %}
+							<p class="selector-de-tu-elemento" style="color: white; font-size: 50px; line-height: 1.5; padding-left: 40px; ">{{how.text}}</p>
+						{% endfor %}
 						</div>
 					</div>
 				</div>
@@ -109,28 +110,28 @@
 			<section class="About-area section-gap" id="about" style="text-align: center; height: 1000px;">
 				<table style="width: 90%; border-collapse: separate; border-spacing: 100px;">
 					<tr>
-						<td><img src="{% static 'core/img/logo1.png' %}" alt="La idea" style="width: 500px;"></td>
-						<td><img src="{% static 'core/img/logo2.png' %}" alt="El inicio" style="width: 500px;"></td>
-						<td><img src="{% static 'core/img/logo3.png' %}" alt="El hoy" style="width: 500px;"></td>
+					{% for logos in logos %}
+							<td><img src="{{logos.image.url }}" alt="La idea" style="width: 500px;"></td>
+					{% endfor %}	
 					</tr>
 					<tr>
-						<td style="font-size: 50px;">La idea</td>
-						<td style="font-size: 50px;">El inicio</td>
-						<td style="font-size: 50px;">El hoy</td>
+					{% for logos in logos %}
+						<td style="font-size: 50px;">{{logos.title}}</td>
+					{% endfor %}		
 					</tr>
 				</table>
 			</section>
 			<section class="grid-section" style="background-color: #7F7F7F;">
-				<div class="table-container">
+				<div class="table-container ">
 					<table class="responsive-table">
 						<tr>
 							<td>
 								<div class="image-container">
 									<img src="{% static 'core/img/_62A9923.jpg' %}" alt="Imagen 1">
 									<div class="overlay">
-										<p>Información de la imagen 1</p>
-										<p>Información de la imagen 1</p>
-										<p>Información de la imagen 1</p>
+										<h1 class="title">Título de la imagen</h1>
+            							<p class="description">Descripción de la imagen que se muestra en la esquina inferior derecha.</p>
+            							<p class="subtitle">Subtítulo encima de la descripción</p>
 									</div>
 								</div>
 							</td>
@@ -154,10 +155,7 @@
 							</td>
 							<td>
 								<div class="image-container">
-									<img src="{% static 'core/img/_62A9923.jpg' %}" alt="Imagen 4">
-									<div class="overlay">
-										<p>Información de la imagen 4</p>
-									</div>
+									<img src="{% static 'core/img/fondo.png' %}" alt="Imagen 4">
 								</div>
 							</td>
 						</tr>
@@ -209,10 +207,10 @@
 						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 						<p class="col-lg-8 col-sm-12 footer-text m-0 text-white">Copyright &copy; <script>document.write(new Date().getFullYear());</script> All rights reserved | TMT </a></p>
 
-						<div class="col-lg-4 col-sm-12 footer-social">
+						{% comment %} <div class="col-lg-4 col-sm-12 footer-social">
 							<a href="#"><i class="fa fa-facebook"></i></a>
 							<a href="#"><i class="fa fa-twitter"></i></a>
-						</div>
+						</div> {% endcomment %}
 					</div>
 				</div>
 			</footer>
