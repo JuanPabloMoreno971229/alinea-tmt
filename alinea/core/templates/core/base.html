@@ -47,7 +47,7 @@
 									<a href="#about">Proyectos</a>
 									<a href="#gallery">Contacto</a>							
 								</nav>
-								<div class="menu-bar"><span class="lnr lnr-menu"></span></div>
+								
 							</div>
 						</div>
 					</div>
@@ -61,7 +61,7 @@
 						<div class="carousel-inner" role="listbox">
 							{% for carusel_landing in carusel_landings %}
 								<div class="carousel-item {% if forloop.first %}active{% endif %}" style="background-image: url('{{carusel_landing.image.url }}')">
-									<div class="carousel-caption d-md-block">
+									<div class="carousel-caption d-md-block scroll-content fadeTop">
 										<h1 class="selector-de-tu-elemento" style="font-size: 250px; color: #ffff;">{{carusel_landing.text}}</h1>
 										{% if carusel_landing.image_title %}
 											<img width="900px" height="500px" src="{{carusel_landing.image_title.url }}" alt="">
@@ -81,13 +81,14 @@
 					</div>
 				</div>
 			</section>
+
 			<!-- End banner Area -->	
 			<!-- Start About Area -->
-			<section class="About-area section-gap" id="about" style="background-image: url('{% static 'core/img/fondo-de-que-es.jpg' %}'); background-size: 100%; padding: 0; height: 1060px;">
-				<div class="container" >
+			<section class="About-area section-gap content gray" id="about" style="background-image: url('{% static 'core/img/fondo-de-que-es.jpg' %}'); background-size: 100%; padding: 0; height: 1060px;">
+				<div class="container scroll-content fadeRight" >
 					<div class="row d-flex align-items-center " style="justify-content: flex-end; align-items: flex-end; min-height: 100vh; ">
 						<div class="col-lg-6 about-right">
-							<ul class="selector-de-tu-elemento"style="list-style-type: disc; color: white; font-size: 50px;">
+							<ul class="selector-de-tu-elemento animate-up"style="list-style-type: disc; color: white; font-size: 50px;">
 								{% for what in what %}
 									<li style="margin-bottom: 50px;">{{what.title}}</li>
 								{% endfor %}
@@ -97,7 +98,7 @@
 				</div>  
 			</section>
 			<section class="About-area section-gap" id="about" style="background-image: url('{% static 'core/img/que-hace-img-fondo.jpg' %}'); background-size: 100%; padding: 0; height: 1060px;">
-				<div class="container">
+				<div class="container scroll-content fadeLeft">
 					<div class="row d-flex align-items-center" style="justify-content: flex-end; align-items: flex-end; min-height: 100vh;">
 						<div class="col-lg-6 about-right">
 						{% for how in how %}
@@ -121,47 +122,89 @@
 					</tr>
 				</table>
 			</section>
-			<section class="grid-section" style="background-color: #7F7F7F;">
-				<div class="table-container ">
-					<table class="responsive-table">
-						<tr>
-							<td>
-								<div class="image-container">
-									<img src="{% static 'core/img/_62A9923.jpg' %}" alt="Imagen 1">
-									<div class="overlay">
-										<h1 class="title">Título de la imagen</h1>
-            							<p class="description">Descripción de la imagen que se muestra en la esquina inferior derecha.</p>
-            							<p class="subtitle">Subtítulo encima de la descripción</p>
-									</div>
-								</div>
-							</td>
-							<td>
-								<div class="image-container">
-									<img src="{% static 'core/img/_62A9923.jpg' %}" alt="Imagen 2">
-									<div class="overlay">
-										<p>Información de la imagen 2</p>
-									</div>
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<div class="image-container">
-									<img src="{% static 'core/img/_62A9923.jpg' %}" alt="Imagen 3">
-									<div class="overlay">
-										<p>Información de la imagen 3</p>
-									</div>
-								</div>
-							</td>
-							<td>
-								<div class="image-container">
-									<img src="{% static 'core/img/fondo.png' %}" alt="Imagen 4">
-								</div>
-							</td>
-						</tr>
-					</table>
-				</div>
-			</section>
+			
+			<section class="grid-section gallery-area section-gap" style="background-color: #7F7F7F;">
+    <div class="table-container gal">
+        <table class="responsive-table">
+            <tr>
+                <td>
+                    <div class="image-container">
+                        <a href="#projectModal" data-toggle="modal" data-target="#projectModal" data-projectid="{{ projects.0.id }}">
+                            <img src="{{ projects.0.images.first.image.url }}" alt="Imagen 1">
+                            <div class="overlay" data-toggle="modal" data-target="#projectModal" data-projectid="{{ projects.0.id }}">
+                                <p class="description">{{ projects.0.information|linebreaks }}</p>
+                            </div>
+                        </a>
+                    </div>
+                </td>
+                <td>
+                    <div class="image-container">
+                        <a href="#projectModal" data-toggle="modal" data-target="#projectModal" data-projectid="{{ projects.1.id }}">
+                            <img src="{{ projects.1.images.first.image.url }}" alt="Imagen 2">
+                            <div class="overlay" data-toggle="modal" data-target="#projectModal" data-projectid="{{ projects.1.id }}">
+                                <p class="description">{{ projects.1.information|linebreaks }}</p>
+                            </div>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="image-container">
+						<a href="https://www.kassa129.com/" target="_blank">
+							<img src="{{ projects.2.images.first.image.url }}" alt="Imagen 3">
+							<div class="overlay">
+								<p class="description">{{ projects.2.information|linebreaks }}</p>
+							</div>
+						</a>
+					</div>
+                </td>
+                <td>
+                    <div class="image-container">
+                        <img src="{% static 'core/img/fondo.png' %}" alt="Imagen 4">
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</section>
+
+
+
+<!-- Modal para mostrar las imágenes del proyecto -->
+<div class="modal fade" id="projectModal" tabindex="-1" role="dialog" aria-labelledby="projectModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg " style="max-width: 60%; max-height: 80vh;" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="projectCarousel" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <!-- Aquí iterarás sobre las imágenes del proyecto -->
+                        {% for image in projects.0.images.all %}
+                            <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                                <img src="{{ image.image.url }}" alt="Imagen del proyecto">
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <a class="carousel-control-prev" href="#projectCarousel" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Anterior</span>
+                    </a>
+                    <a class="carousel-control-next" href="#projectCarousel" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Siguiente</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+			
 			<section class="contact-area" id="contact" style="background-color: #C4BD97;" >
 				<div class="container-fluid">
 					<div class="row d-flex justify-content-end align-items-center">
@@ -225,7 +268,7 @@
 			<script src="{% static 'core/js/jquery.sticky.js' %}"></script>
 			<script src="{% static 'core/js/parallax.min.js' %}"></script>
 			<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-			<script type="text/javascript" src="js/simple-lightbox.min.js' %}"></script>
+			<script type="text/javascript" src="{% static 'core/js/simple-lightbox.min.js' %}"></script>
 			<script src="{% static 'core/js/main.js' %}"></script>	
 		</body>
 	</html>

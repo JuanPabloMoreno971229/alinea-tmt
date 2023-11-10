@@ -88,20 +88,31 @@ class logos(models.Model):
     def __str__(self):
         return self.title
 
+
+class Image(models.Model):
+    title = models.CharField(max_length=255)
+    image = models.ImageField(upload_to='project_images/')
+
+    class Meta:
+        verbose_name = "Imagen"
+        verbose_name_plural = "Imagenes"
+        ordering = ["-title"]
+
+    def __str__(self):
+        return self.title
+
 class Project(models.Model):
-    
     title = models.CharField(verbose_name="Título", max_length=200, blank=True)
-    image = models.ImageField(verbose_name="Imagen", upload_to="Logo")
+    images = models.ManyToManyField(Image, verbose_name="Imágenes")
     information = models.TextField(verbose_name="Información")
-    created= models.DateTimeField(auto_now_add=True, verbose_name="Fecha de creación")
+    created = models.DateTimeField(auto_now_add=True, verbose_name="Fecha de creación")
     updated = models.DateTimeField(auto_now=True, verbose_name="Fecha de edición")
 
     class Meta:
         verbose_name = "Proyecto"
-        verbose_name_plural = "Proyecto"
-        ordering = ["-created"]
-        
-                
+        verbose_name_plural = "Proyectos"
+        ordering = ["created"]
+
     def __str__(self):
         return self.title
 

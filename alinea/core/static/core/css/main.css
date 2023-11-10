@@ -51,7 +51,7 @@
 
 body {
   color: #777777;
-  font-family: "Poppins", sans-serif;
+  font-family: "Futura LT W04 Book";
   font-size: 14px;
   font-weight: 300;
   line-height: 1.625em;
@@ -132,7 +132,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Poppins", sans-serif;
+  font-family: "Futura LT W04 Book";
   color: #222222;
   line-height: 1.2em !important;
   margin-bottom: 0;
@@ -148,7 +148,7 @@ h6 {
 .h6 {
   margin-bottom: 0;
   margin-top: 0;
-  font-family: "Poppins", sans-serif;
+  font-family: "Futura LT W04 Book";
   font-weight: 600;
   color: #222222;
 }
@@ -2255,18 +2255,9 @@ nav a:hover {
   color: #777;
 }
 
-.gal {
-  -webkit-column-count: 4;
-  /* Chrome, Safari, Opera */
-  -moz-column-count: 4;
-  /* Firefox */
-  column-count: 4;
-}
 
-.gal img {
-  width: 100%;
-  padding: 7px 0;
-}
+
+
 
 @media (max-width: 500px) {
   .gal {
@@ -2772,3 +2763,121 @@ h6 {
   text-align: right;
 }
 
+/*=================================================================*/
+
+/* Agregar la animación de subida */
+.animate-up {
+  animation: subirTexto 0.5s ease;
+}
+
+/* Definir la animación de subida */
+@keyframes subirTexto {
+  from {
+      transform: translateY(50px); /* Inicialmente, los textos estarán 50px más abajo */
+      opacity: 0; /* Inicialmente, los textos estarán ocultos */
+  }
+  to {
+      transform: translateY(0); /* Los textos vuelven a su posición original */
+      opacity: 1; /* Los textos se vuelven visibles */
+  }
+}
+
+/* CSS personalizado para ajustar las imágenes dentro del modal */
+.modal-content {
+  max-width: 100%; /* Establece el ancho máximo al 100% del contenedor */
+  height: auto; /* La altura se ajustará automáticamente según el contenido */
+}
+
+.modal-body img {
+  max-width: 100%; /* Ajusta el ancho máximo de las imágenes al 100% del contenedor modal */
+  height: auto; /* La altura se ajustará automáticamente según el ancho */
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(196, 189, 151, 0.7); /* Cambiar el valor alpha para ajustar la transparencia */
+  color: white;
+  padding: 15px; /* Aumentar el tamaño del padding */
+  font-size: 18px; /* Aumentar el tamaño del texto */
+  font-family: "Futura LT W04 Book"; /* Reemplaza 'Tu-Fuente' con el nombre de la fuente de tu proyecto */
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.overlay:hover {
+  opacity: 0.7; /* Cambiar el valor de opacidad en el hover */
+}
+
+/* Subtítulo y descripción */
+.subtitle {
+  position: absolute;
+  bottom: 10px; /* Ajustar la posición vertical */
+  right: 10px; /* Ajustar la posición horizontal */
+  font-size: 50px; /* Aumentar el tamaño del texto */
+  font-family: "Futura LT W04 Book"; /* Reemplaza 'Tu-Fuente' con el nombre de la fuente de tu proyecto */
+}
+
+.description {
+  position: absolute;
+  bottom: 10px; /* Ajustar la posición vertical */
+  right: 10px; /* Ajustar la posición horizontal */
+  font-size: 50px; /* Aumentar el tamaño del texto */
+  font-family: "Futura LT W04 Book"; /* Reemplaza 'Tu-Fuente' con el nombre de la fuente de tu proyecto */
+}
+
+
+.content {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px; 
+  opacity: 1;
+  transform: translate(0, 0);
+  transition: all 1s;
+}
+
+.content > div {
+  margin: 0 auto;
+  background-color: transparent;
+  width: 50%;
+  height: 100%;
+  grid-area: 2 / 2 / 5 / 5;
+}
+
+.gray {
+  background-color: transparent;
+}
+
+.blue {
+  background-color: transparent;
+}
+
+.darkgray {
+  background-color: transparent;
+}
+
+.fadeTop {
+  opacity: 0; 
+  transform: translate(0, 10vh);
+  transition: all 1s;
+}
+
+.fadeRight {
+  opacity: 0;
+  transform: translate(10vh, 0vh);
+  transition: all 1s;
+}
+
+.fadeLeft {
+  opacity: 0;
+  transform: translate(-10vh, 0vh);
+  transition: all 1s;
+}
+
+.visible {
+  opacity: 1;
+  transform: translate(0, 0);
+}

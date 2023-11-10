@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import CaruselLanding, Contact, what, how, logos, Project
+from .models import CaruselLanding, Contact, what, how, logos, Project, Image
 
 # Register your models here.
 class LandingAdmin(admin.ModelAdmin):
@@ -23,9 +23,12 @@ class LogosAdmin(admin.ModelAdmin):
 class ProjectAdmin(admin.ModelAdmin):
     readonly_fields = ('updated', 'created')
 
+
+
 admin.site.register(CaruselLanding, LandingAdmin)
 admin.site.register(Contact, ContactAdmin)
 admin.site.register(what, WhatAdmin)
 admin.site.register(how, HowAdmin)
 admin.site.register(logos, LogosAdmin)
 admin.site.register(Project, ProjectAdmin) 
+admin.site.register(Image)
